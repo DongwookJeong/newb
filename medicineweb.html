@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>medicine</title>
+</head>
+
+<body>
+<h1><center style="font-size:40px;">medicine</center>
+</h1>
+
+<h2><center style="font-size:15px;">KOREA PHARMACEUTICAL INFORMATION CENTER</center></h2>
+
+<section id="mainSearch">
+    <h2>의약품검색</h2>
+    <div id="mainSearch_cont">
+        <img src="images/catchphrase.png" style="cursor:pointer" onclick="window.document.location.href='/main.asp'" alt="대한민국 의약품정보의 표준" class="catchPhrase" />
+        <div id="search">
+            <h1><img src="images/ci.png" style="cursor:pointer" onclick="window.document.location.href='/main.asp'" alt="약학정보원" />	</h1>
+        
+        <!--src는 ? / style은 ? / onclick은 클릭 및 이동 / img alt는 이미지가 뜨지 않을 시 대체 / class는 c++언어 / div는 section과 같은지만 작은 용도 / **현재 하늘색 코드는 css언어-->
+            <form action="/searchDrug/search_total_result.asp" method="POST" id="header_frm"></form>
+				<!--form 태그는 사용자로부터 입력을 받을 수 있는 HTML 입력 폼-->
+
+            <fieldset>
+				<legend class="blind">의약품검색</legend>
+				<!--fieldset 태그는 form 요소에서 연관된 요소들을 하나의 그룹으로 묶을 때 사용-->
+				<div id="searchBar">
+					<div id="category">
+						<a style="cursor:pointer" id="selectBoxTitle" onclick="javascript:$('#searchBar #category_list').toggle();"/>의약품검색</a>
+						<span style="cursor:pointer" class="arr ico" onclick="javascript:$('#searchBar #category_list').toggle();"></span>
+					</div>
+					<ul id="category_list" style="display:none">
+						<li id="li_all"><a style="cursor:pointer;display:none" id="hiddenLi" onclick="javascript:selectBoxToggle('all','의약품검색');">의약품검색</a></li>
+						<li id="li_drug_name"><a style="cursor:pointer" onclick="javascript:selectBoxToggle('drug_name','제품명');">제품명</a></li>
+						<li id="li_ingr_mg"><a style="cursor:pointer" onclick="javascript:selectBoxToggle('ingr_name','성분명');">성분명</a></li>
+                    </ul>
+                    <div id="searchbox">
+						<input type="text" name="search_word" id="search_word"  value="" 
+						onkeyup="javascript:drugNmAjax_main();return false;" onfocus="$('#search_word').prop('placeholder','')" placeholder="약물의 제품명 또는 성분명을 입력하세요.">
+						<input type="hidden" value="all" id="search_flag" name="search_flag"/>
+						<ul id="main_drugList" class="category_list" style="display:none;">
+                        </ul>
+					</div>
+					<button type="submit" title="검색" class="search" onclick="javascript:header_validate();return false;">검 색</button>
+					<button type="submit" title="상세검색" class="searchDeatil"  onclick="location.href='/searchDrug/search_detail.asp';return false;">상세검색</button>
+				</div>
+				</fieldset>
+				
+				
+				</form>
+			</div>
+		</div>
+	</section><!-- //mainSearch -->
+</header><!-- //상단검색영역 header-->
+<!-- <nav>
+	<div id="nav_cont">
+		<ul>
+			<li id="li_searchdrug">
+				<a href="/searchDrug/search_detail.asp" on click="beforeLoadChk(this);return false;">의약품검색</a>
+				<div class="secDepth" id="div_searchdrug" >
+					<ul class="searchDrug" >
+						<li><a href="/searchDrug/search_detail.asp" on click="beforeLoadChk(this);return false;" id="a_searchdrug" >의약품 상세검색</a></li>
+
+!-- 						<li><a href="/searchDrug/search_pregnants.asp" on click="beforeLoadChk(this);return false;" id="a_search_pregnants">임부 약물사용</a></li> -->
+						<li><a href="/searchDrug/search_DUR.asp" on click="beforeLoadChk(this);return false;" id="a_search_DUR">의약품안전사용서비스 (DUR)</a></li>
+					</ul>
+				</div>
+			</li>
+			<li id="li_searchIdentity">
+				<a href="/searchIdentity/search.asp" on click="beforeLoadChk(this);return false;">의약품식별</a>
+				<div class="secDepth" id="div_searchIdentity" style="display:none">
+					<ul class="searchIdentity">
+						<li><a href="/searchIdentity/search.asp" on click="beforeLoadChk(this);return false;" id="a_searchIdentity_search">식별검색</a></li>
+						<li><a style='cursor:pointer'  onclick="window.open('http://www.pharm.or.kr','','')" id="searchIdentity_pharmorkr">식별표시 등록</a></li>
+					</ul>
+				</div>
+			</li>
+			<li id="li_mediCounsel">
+				<a href="/mediCounsel/product.asp" on click="beforeLoadChk(this);return false;">복약정보</a>
+				<div class="secDepth" id="div_mediCounsel" style="display:none">
+					<ul class="mediCounsel">
+						<li><a href="/mediCounsel/product.asp" on click="beforeLoadChk(this);return false;" id="a_product">제품별 복약정보</a></li>
+						<li><a href="/mediCounsel/pictogram.asp" on click="beforeLoadChk(this);return false;" id="a_pictogram">픽토그램 복약정보</a></li>
+						<li><a href="/mediCounsel/form_mv.asp" on click="beforeLoadChk(this);return false;" id="a_form">제형별 복약정보</a></li>
+					</ul>
+				</div>
+			</li>
+			<li id="li_searchIngredient">
+				<a href="/searchIngredient/search.asp" on click="beforeLoadChk(this);return false;">성분정보</a>
+				<div class="secDepth" id="div_searchIngredient" style="display:none">
+					<ul class="searchIngredient">
+						<li><a href="/searchIngredient/search.asp" on click="beforeLoadChk(this);return false;" id="a_searchIngredient_search">성분정보</a></li>
+						<li><a href="/searchIngredient/KPICeffect.asp" on click="beforeLoadChk(this);return false;" id="a_searchIngredient_kpicatc">KPIC 약효분류</a></li>
+					</ul>
+				</div>
+			</li>
+			<li id="li_interaction">
+				<a href="/interaction/drug.asp" on click="beforeLoadChk(this);return false;">상호작용</a>
+				<div class="secDepth" id="div_interaction" style="display:none">
+					<ul class="interaction">
+						<li><a href="/interaction/drug.asp" on click="beforeLoadChk(this);return false;" id="a_interaction_drug">약물-약물 상호작용</a></li>
+						<li><a href="/interaction/food.asp" on click="beforeLoadChk(this);return false;" id="a_interaction_food">약물-음식 상호작용</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a href="/researchInfo/pharmreview.asp" on click="beforeLoadChk(this);return false;">학술정보</a>
+				<div class="secDepth" style="display:none">
+					<ul class="researchInfo">
+						<li><a href="/researchInfo/pharmreview.asp" on click="beforeLoadChk(this);return false;" id="a_pharmreview">팜리뷰</a></li>
+						<li><a href="/researchInfo/drugApprovalRv.asp" on click="beforeLoadChk(this);return false;" id="a_drugApprovalRv">허가 리뷰</a></li>
+						<li><a href="/researchInfo/issue&trend.asp"     on click="beforeLoadChk(this);return false;" id="a_issuentrend">이슈 & 트렌드</a></li>
+						<li><a href="/researchInfo/encyclopedia.asp"  on click="beforeLoadChk(this);return false;" id="a_encyclopedia">약물백과</a></li>
+						<li><a href="/researchInfo/newdrug.asp"     on click="beforeLoadChk(this);return false;" id="a_newdrug">신약평론</a></li>
+						<li><a href="/researchInfo/adverse.asp"     on click="beforeLoadChk(this);return false;" id="a_adverse">부작용 리포트</a></li>
+						<li><a href="/researchInfo/globalnews.asp"  on click="beforeLoadChk(this);return false;" id="a_globalnews">해외의약뉴스</a></li>
+						<li><a href="/researchInfo/disease.asp"     on click="beforeLoadChk(this);return false;" id="a_disease">질병정보</a></li>
+						<li><a href="/researchInfo/herbalMedicine1.asp" on click="beforeLoadChk(this);return false;" id="a_herbalMedicine1">한약정보</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a href="/resource/PMPlus20.asp">자료실</a>
+				<div class="secDepth" style="display:none">
+					<ul class="resource">
+						<li><a href="/resource/PMPlus20.asp" id="a_program">프로그램</a></li>
+						<li><a href="/resource/app.asp" on click="beforeLoadChk(this);return false;" id="a_app">모바일앱</a></li>
+						<li><a href="http://book.health.kr/" target="_blank">전자도서관</a></li>
+						<li><a href="/resource/link.asp" on click="beforeLoadChk(this);return false;" id="a_link">바로가기 서비스</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a href="/notice/safety.asp" on click="beforeLoadChk(this);return false;">알림/문의</a>
+				<div class="secDepth" style="display:none">
+					<ul class="notice">
+						<li><a href="/notice/safety.asp"     on click="beforeLoadChk(this);return false;" id="a_Safety">안전성 서한/속보</a></li>
+						<li><a href="/notice/notice.asp"     on click="beforeLoadChk(this);return false;" id="a_Notice">공지사항</a></li>
+						<li><a href="/notice/press.asp"     on click="beforeLoadChk(this);return false;" id="a_Press">보도자료</a></li>
+						<li><a href="/notice/QnA.asp"     on click="beforeLoadChk(this);return false;" id="a_QnA">통합 Q&A</a></li>
+						<li><a href="/notice/email.asp" on click="beforeLoadChk(this);return false;" id="a_Email">이메일 문의</a></li>
+						<li><a href="/notice/inquireAd.asp" on click="beforeLoadChk(this);return false;" id="a_Ad">광고 / 제휴문의</a></li>
+						<li><a href="/notice/package.asp" on click="beforeLoadChk(this);return false;" id="a_Pack">포장이미지 등록</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a  href="/company/greeting.asp">회사소개</a>
+				<div class="secDepth" style="display:none">
+					<ul class="company">
+						<li><a href="/company/greeting.asp" on click="beforeLoadChk(this);" id="a_greeting">인사말</a></li>
+						<li><a href="/company/history.asp" onc lick="beforeLoadChk(this);" id="a_history">회사개요</a></li>
+						<li><a href="/company/business.asp" on click="beforeLoadChk(this);" id="a_business">주요사업</a></li>
+						<li><a href="/company/partner.asp" onc lick="beforeLoadChk(this);" id="a_partner">제휴/고객사</a></li>
+						<li><a href="/company/recruit.asp" onc lick="beforeLoadChk(this);" id="a_recruit">인재채용</a></li>
+						<li><a href="/company/location.asp" onc lick="beforeLoadChk(this);" id="a_location">찾아오시는 길</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<span id="main_bar" class="bar" style="display:none"></span>
+		<div id="sitemap">
+			<a href="#" class="ico" title="사이트맵" ></a>
+			<div id="map" style="display:none;">
+				<ul>
+					<li>
+						<h5>의약품검색</h5>
+						<ul>
+							<li><a href="/searchDrug/search_detail.asp">의약품 상세검색</a></li>
+<!-- 							<li><a href="/searchDrug/search_pregnants.asp">임부 약물사용</a></li> -->
+							<li><a href="/searchDrug/search_DUR.asp">의약품안전사용서비스(DUR)</a></li>
+						</ul>
+					</li>
+					<li>
+						<h5>의약품식별</h5>
+						<ul>
+							<li><a href="/searchIdentity/search.asp">식별검색</a></li>
+							<li><a href="http://www.pharm.or.kr/" target="_blank">식별표시 등록</a></li>
+						</ul>
+					</li>
+					<li>
+						<h5>복약정보</h5>
+						<ul>
+							<li><a href="/mediCounsel/product.asp">제품별 복약정보</a></li>
+							<li><a href="/mediCounsel/pictogram.asp">픽토그램 복약정보</a></li>
+							<li><a href="/mediCounsel/form_mv.asp">제형별 복약정보</a></li>
+						</ul>
+					</li>
+					<li>
+						<h5>성분정보</h5>
+						<ul>
+							<li><a href="/searchIngredient/search.asp">성분정보</a></li>
+							<li><a href="/searchIngredient/KPICeffect.asp">KPIC 약효분류</a></li>
+						</ul>
+					</li>
+					<li class="mr0">
+						<h5>상호작용</h5>
+						<ul>
+							<li><a href="/interaction/drug.asp">약물-약물 상호작용</a></li>
+							<li><a href="/interaction/food.asp">약물-음식 상호작용</a></li>
+						</ul>
+					</li>
+					<li>
+						<h5>학술정보</h5>
+						<ul>
+							<li><a href="/researchInfo/pharmreview.asp">팜리뷰</a></li>
+							<li><a href="/researchInfo/drugApprovalRv.asp">허가 리뷰</a></li>
+							<li><a href="/researchInfo/issue&trend.asp">이슈 & 트렌드</a></li>
+							<li><a href="/researchInfo/encyclopedia.asp">약물백과</a></li>
+							<li><a href="/researchInfo/newdrug.asp">신약평론</a></li>
+							<li><a href="/researchInfo/adverse.asp">부작용 리포트</a></li>
+							<li><a href="/researchInfo/globalnews.asp">해외의약뉴스</a></li>
+							<li><a href="/researchInfo/disease.asp">질병정보</a></li>
+							<li><a href="/researchInfo/herbalMedicine1.asp">한약정보</a></li>
+						</ul>
+					</li>
+					<li>
+						<h5>자료실</h5>
+						<ul>
+							<li><a href="/resource/PMPlus20.asp">프로그램</a></li>
+							<li><a href="/resource/app.asp">모바일앱</a></li>
+							<li><a href="http://book.health.kr" target="_blank">전자도서관</a></li>
+							<li><a href="/resource/link.asp">바로가기 서비스</a></li>
+						</ul>
+					</li>
+					<li>
+						<h5>알림/문의</h5>
+						<ul>
+							<li><a href="/notice/safety.asp">안전성 서한 / 속보</a></li>
+							<li><a href="/notice/notice.asp">공지사항</a></li>
+							<li><a href="/notice/press.asp">보도자료</a></li>
+							<li><a href="/notice/QnA.asp">통합 Q&A</a></li>
+							<li><a href="/notice/email.asp">이메일 문의</a></li>
+							<li><a href="/notice/inquireAd.asp">광고 / 제휴 문의</a></li>
+							<li><a href="/notice/package.asp">포장이미지 등록</a></li>
+						</ul>
+					</li>
+					<li>
+						<h5>회사소개</h5>
+						<ul>
+							<li><a href="/company/greeting.asp">인사말</a></li>
+							<li><a href="/company/history.asp">회사개요</a></li>
+							<li><a href="/company/business.asp">주요사업</a></li>
+							<li><a href="/company/partner.asp">제휴 / 고객사</a></li>
+							<li><a href="/company/recruit.asp">인재채용</a></li>
+							<li><a href="/company/location.asp">찾아오시는 길</a></li>
+						</ul>
+					</li>
+					<li class="mr0">
+						<h5>회원가입</h5>
+						<ul>
+							<li><a href="/member/terms.asp">회원가입</a></li>
+							<li><a href="/member/userAgreement.asp">서비스 이용약관</a></li>
+							<li><a href="/member/privacy.asp">개인정보 처리방침</a></li>
+							<li><a href="/member/collectingEmail.html" target="collectingEmail" onclick="window.open('/member/collectingEmail.html', 'collectingEmail', 'width=635,height=300,left=600,top=100,scrollbars=no,toolbar=no');">이메일주소 무단수집거부</a></li>
+							<li><a href="/member/legalLiability.asp">법적 책임의 한계</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+</body>
+</html>
