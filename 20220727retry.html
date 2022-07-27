@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0%;
+  }
+  header{
+    background-color: darkgray;
+    width: 100vw;
+    height: 6vh;
+    margin: 0%;
+  }
+  header > nav > div > ul > li{
+    list-style: none;
+    display: inline;
+    padding: 0vw;
+  }
+
+  .border{border: 1px solid red;}
+  .mg-right{margin-right: 40vw}
+  .mg-left{margin-left: 3vw;}
+  .line-width{line-height: 3px;}
+  .container {
+    display: grid;
+  }
+
+</style>
+</head>
+<body class="border">
+<!-- header 부분 - 배경 컬러 회색, 메뉴아이콘, 홈페이지아이콘, 5가지메뉴리스트, 장바구니아이콘, 검색창 총 9가지 -->
+  <header class="border">
+  <nav>
+    <div>
+      <!-- 3가지 아이콘, 5가지 메뉴 리스트
+      실수리스트
+      1. 왼쪽으로 메뉴, 홈페이지 아이콘을 몰고 margin활용 실행
+      2. 마진과 디스플레이 인라인으로 해결-->
+      <ul class="border">
+        <li class="border mg-left">메뉴</li>
+        <li class="border mg-left mg-right">홈페이지</li>
+        <li class="border">학습내용</li>
+        <li class="border">커리큘럼</li>
+        <li class="border">학원위치</li>
+        <li class="border">문의</li>
+        <li class="border">선생님</li>
+        <li class="border mg-left">장바구니</li>
+        <li class="border">검색</li>
+      </ul>
+    </div>
+  </nav>
+  </header>
+  <main  class="border container">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>

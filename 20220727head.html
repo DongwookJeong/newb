@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  body{
+    width: 100vw;
+    height: 100%;
+    margin: 0%;
+  }
+  header{
+    background-color: darkgray;
+    width: 100vw;
+    height: 6vh;
+    margin: 0%;
+  }
+  header > nav > div > ul > li{
+    list-style: none;
+    display: inline;
+    padding: 0vw;
+  }
+  main{
+    width:inherit
+
+  }
+  /* nav 2칸 안들어가는 문제발생
+  1. width 사이즈 조절했지만 안들어감
+  2. main 마진 조절했지만 안들어감 */
+  main > nav{
+    width: 100vw;
+    height: 50vh;
+    margin: 0%;
+    padding: 3%;
+  }
+  main > nav > div{
+    width: 650px;
+    height: 30vh;
+    margin: 0%;
+    box-sizing: border;
+    display: inline-block;
+
+  }
+  main > nav > div > p{
+    width: 30vw;
+  }
+  main > nav > div > div{
+    display: inline-block;
+    width: 10vw;
+    height: 5vh;
+  }
+  main > div > div > div{
+    width: 270px;
+    height: 270px;
+    margin: 0%;
+    display: inline-block;
+  }
+  main > div > div > div > div{
+    width: 650px;
+    height: 20vh;
+  }
+  main > div > div > div > p{
+    width: 200px;
+    margin: 0%;
+  }
+  main > div {
+    width: 100vw;
+    height: 550px;
+    padding: 1%;
+    display: block;
+    margin: 0%;
+  }
+  main > div > div{
+    width: 50vw;
+    height: inherit;
+    display: inline;
+    margin: 0%;
+    padding: 0%;
+  }
+  main > div > p{
+    width: 200px;
+    height: 3vh;
+    display:inline-block;
+    margin-right: 0%;
+  }
+  main > div > div > p{
+    width: inherit;
+    margin: 0%;
+  }
+  main > section{
+    height: 20vh;
+    display: block;
+  }
+  main > section > div{
+    width: 23vh;
+    height: 20vh;
+    display: inline-block;
+    margin-right: 3vw;
+  }
+  .border{border: 1px solid red;}
+  .mg-right{margin-right: 40vw}
+  .mg-left{margin-left: 3vw;}
+  .line-width{line-height: 3px;}
+  .seemore-border-size{
+    width: 200px;
+    height: 20px;
+  }
+  .saleoff-width{width: 30vw;}
+</style>
+</head>
+<body class="border">
+<!-- header 부분 - 배경 컬러 회색, 메뉴아이콘, 홈페이지아이콘, 5가지메뉴리스트, 장바구니아이콘, 검색창 총 9가지 -->
+  <header class="border">
+  <nav>
+    <div>
+      <!-- 3가지 아이콘, 5가지 메뉴 리스트
+      실수리스트
+      1. 왼쪽으로 메뉴, 홈페이지 아이콘을 몰고 margin활용 실행
+      2. 마진과 디스플레이 인라인으로 해결-->
+      <ul class="border">
+        <li class="border mg-left">메뉴</li>
+        <li class="border mg-left mg-right">홈페이지</li>
+        <li class="border">학습내용</li>
+        <li class="border">커리큘럼</li>
+        <li class="border">학원위치</li>
+        <li class="border">문의</li>
+        <li class="border">선생님</li>
+        <li class="border mg-left">장바구니</li>
+        <li class="border">검색</li>
+      </ul>
+    </div>
+  </nav>
+  </header>
+  <main  class="border">
+<!-- 큰 단락 5칸, -->
+    <nav class="border">
+      <!-- 첫 div  -->
+      <div class="border">
+        <p class="border">
+          <!-- 볼드 -->
+          W E  M A D E
+        </p>
+        <p class="border">
+          <!-- 금색 -->
+          YOUR REAR HOME
+        </p>
+        <p class="border">
+          <!-- 검은색  -->
+          블라라라라랄라
+        </p>
+        <div class="border">
+          <!-- sign up, 쥐색 배경, 흰 폰트 -->
+          sign up
+        </div>
+        <div class="border">
+          <!-- 검은색, 볼드 -->
+          learn more
+        </div>
+      </div>
+      <div class="border">
+        의자
+      </div>
+    </nav>
+    <section class="border">
+      <div class="saleoff-width mg-left">sale off</div>
+      <div class="border">전등</div>
+      <div class="border">전등</div>
+      <div class="border">의자</div>
+      <div class="border">none</div>
+    </section>
+    <div class="border">
+      <div class="border">
+      coming
+      <p>선</p>
+      <p>블라블라</p>
+      <p class="border seemore-border-size">see more</p>
+    </div>
+    <div class="border">
+      <div class="border">
+        <p>오피스</p>
+        <p>선</p>
+        <p>블라블라</p>
+      </div>
+      <div class="border">전등</div>
+      <div class="border">도자기</div>
+      <div class="border">
+        <p>키친</p>
+        <p>선</p>
+        <p>블라블라</p>
+      </div>
+    </div>
+    <!-- 
+    <div class="border">
+      <div>
+        <div>최신</div>
+        <div>상품</div>
+        <div>선</div>
+      </div>
+      <div>
+        <div>의자</div>
+        <div>램프</div>
+        <div>블라블라</div>
+      </div>
+      <div>
+        <div>전등</div>
+        <div>램프</div>
+        <div>블라블라</div>
+      </div>
+      <div>
+        <div>전등</div>
+        <div>램프</div>
+        <div>블라블라</div>
+      </div>
+      <div>
+        <div>전등</div>
+        <div>램프</div>
+        <div>블라블라</div>
+      </div>
+    </div>
+    <div class="border">
+      소파인데~
+      <div>블라블라</div>
+    </div>
+    <div class="border">
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+    <div class="border">
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+    <div class="border">
+      <div>
+        <p></p>
+        <p></p>
+      </div>
+      <div>
+        <p></p>
+        <p></p>
+      </div>
+      <div>
+        <p></p>
+        <p></p>
+      </div>
+      <div>
+        <p></p>
+        <p></p>
+      </div>
+    </div>
+  </main>
+  <footer class="border">
+
+  </footer>
+-->
+</body>
+</html>
