@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body > div{
+      background-color: black;
+      width: 40vw;
+      height: 80vh;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      flex-direction: column;
+    }
+    body > div > div:nth-child(1){
+      background-color: black;
+      width: 25%;
+      height: 15%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+      
+    }
+    body > div > div:nth-child(1) > div{
+      background-color: gray;
+      width: 30%;
+      height: 5%;
+      border-radius: 3px;
+    }
+    body > div > div:nth-child(2){
+      color: darkgray;
+      background-color: gray;
+      width: 80%;
+      height: 100%;
+      border-radius: 3px;
+      opacity: 0;
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    body > div > div:nth-child(2) > div{
+      color: darkgray;
+      background-color: gray;
+      width: 25%;
+      height: 10%;
+    }
+    body > div > div:nth-child(2) > div > div:nth-child(1){
+      color: darkgray;
+      background-color: red;
+      width: 25%;
+      height: 10%;
+      position: absolute;
+      z-index: 1;
+      transform: translate(30px, 30px) rotate(20deg);
+    }
+    body > div > div:nth-child(2) > div > div:nth-child(2){
+      color: darkgray;
+      background-color: black;
+      width: 25%;
+      height: 10%;
+      position: absolute;
+      z-index: 2;
+      transform: translate(-30px, -30px) rotate(130deg);
+    }
+    body > div > div:nth-child(2) > ul{
+      background-color: gray;
+      width: 20%;
+      height: 40%;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+
+    }
+    body > div > div:nth-child(2) > ul > li{
+      color: white;
+      background-color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div id="drawer">
+    <div id="burger">
+      <!-- 햄버거 -->
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div id="esc">
+      <!-- menu * 8, X -->
+      <div id = "bye">
+        <div></div>
+        <div></div>
+      </div>
+      <ul>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    let drawer = document.getElementById('drawer');
+    // console.dir(drawer);
+    let burger = document.getElementById('burger');
+    // console.dir(burger);
+    let esc = document.getElementById('esc');
+    // console.dir(esc);
+    let bye = document.getElementById('bye');
+    console.dir(bye);
+    for(let i = 0; i < burger.length; i++);
+    burger.addEventListener('click', function(){
+      burger.style.display = "none";
+      esc.style.display = "flex";
+    });
+    for(let i = 0; i < bye.length; i++);
+    bye.addEventListener('click', function(){
+      esc.style.display = "none";
+      burger.style.display = "flex";
+    });
+
+
+
+  </script>
+</body>
+</html>

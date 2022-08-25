@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <ul id="listType">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <script>
+      const line = document.getElementById('listType').children;
+      console.log(line.length);
+      for(let i =0; i < line.length; i++){
+        line[i].style.width = "3px";
+        line[i].style.height = "30px";
+        line[i].style.backgroundColor = "#dadada";
+        line[i].style.listStyle = "none";
+      }
+      const lineMother = document.getElementById('listType');
+      console.dir(lineMother);
+      console.dir(line);
+      console.log(lineMother);
+      for(let i = 0; i < lineMother.length; i++){
+        lineMother[i].style.displayFlex = "row";
+      }
+    </script>
+</html>
+<!-- 0818
+52줄 length가 입력이 안되는 현상-->

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="title">
+    hello
+  </h1>
+  <script>
+    let title = document.getElementById("title");
+    console.log(document.getElementById("title").
+    textContent);
+    // 이벤트가 일어났을 때 html에서는 고칠 수 없다.
+    
+    // document.getElementById("title").addEventListener("click", function() {
+    //   document.getElementById("title").textContent = "bye";
+
+    // });
+    // 이벤트를 기다리고 있다.
+    title.addEventListener("click", function() {
+      title.textContent = "bye";
+      // console.dir(document.getElementById("title"));
+      title.style.backgroundColor = 'yellow';
+      title.style.color = 'red';
+      // console.dir(title);
+      title.style.fontSize = '4em';
+      // console.dir(title.clientWidth);
+      title.parentNode.style.backgroundColor = "salmon";
+      
+    });
+  </script>
+</body>
+</html>

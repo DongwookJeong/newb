@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    
+  </style>
+</head>
+<body >
+  <ul id ="root">
+    <li>피카츄</li>
+    <li>피카츄</li>
+    <li>피카츄</li>
+    <li>피카츄</li>
+    <li>피카츄</li>
+    <li>피카츄</li>
+  </ul>
+  <script>
+    let pika = document.body.children[0];
+    
+    console.dir(pika);
+    pika.addEventListener("click", function(){
+      pika.style.flexDirection = "column";
+    });
+    
+  </script>
+</body>
+</html>

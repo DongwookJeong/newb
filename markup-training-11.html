@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{box-sizing: border-box; margin: 0; padding: 0;}
+    #root{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+    }
+    #root > header{   
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      list-style: none;
+      width: 60vw;
+      height: 100vh;
+      text-align: center;
+      position: relative;
+      
+    }
+    #root > header > div:nth-child(1){
+      background-color: #222;
+      color: #111;
+      z-index: 7;
+      font-size: 1em;
+      width: 10%;
+      height: inherit;
+    }
+    #root > header > div:nth-child(2){
+      background-color: #333;
+      color: #111;
+      z-index: 6;
+      font-size: 6em;
+      width: 10%;
+      height: inherit;
+    }
+    #root > header > div:nth-child(3){
+      background-color: #444;
+      color: #111;
+      z-index: 5;
+      font-size: 6em;
+      width: 10%;
+      height: inherit;
+    }
+    #root > header > div:nth-child(4){
+      background-color: #555;
+      color: #111;
+      z-index: 4;
+      font-size: 6em;
+      width: 10%;
+      height: inherit;
+    }
+    #root > header > div:nth-child(5){
+      background-color: #666;
+      color: #111;
+      z-index: 3;
+      font-size: 6em;
+      width: 10%;
+      height: inherit;
+    }
+    #root > header > div:nth-child(6){
+      background-color: #777;
+      color: #111;
+      z-index: 2;
+      font-size: 6em;
+      width: 10%;
+      height: inherit;
+    }
+    #root > header > div:nth-child(7){
+      background-color: #888;
+      color: #111;
+      z-index: 1;
+      font-size: 6em;
+      width: 10%;
+      height: inherit;
+    }
+    #root > main{
+    width: 40vw;
+    height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #root > main > div{
+    width: inherit;
+    height: 3px;
+    background-color: #111;
+    }
+    #root > main > h2{
+    width: inherit;
+    height: 7%;
+    color: #111;
+    font-size: 1em;
+    }
+
+  </style>
+</head>
+<body id="root">
+  <header id="ta">
+    <div>냠</div>
+    <div>R</div>
+    <div>E</div>
+    <div>T</div>
+    <div>U</div>
+    <div>R</div>
+    <div>N</div>
+  </header>
+  <main>
+    <div>
+      
+    </div>
+    <h2 id="button">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis quibusdam quae ipsam neque nulla exercitationem temporibus perspiciatis facere qui, maiores dicta, dolore cupiditate? Ex praesentium fugit repellendus odio temporibus earum.
+    </h2>
+  </main>
+  <script>
+    const moveThat = document.getElementById('ta');
+    console.log(moveThat);
+    const lorem = document.getElementById('button');
+    
+    console.log(lorem);
+      lorem.addEventListener('click', function(){
+    
+      for(let i = 0; i <moveThat.children.length; i++){
+        moveThat.children[i].style.backgroundColor = `#${i}${i}${i}`
+      }
+      });
+
+    console.log(moveThat.children[1]);
+
+  </script>
+</body>
+</html>

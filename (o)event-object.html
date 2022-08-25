@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li id="test">여기</li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script>
+    const liItems = document.querySelectorAll("#root > ul > li");
+    // console.log(liItems);
+    const container = document.getElementsByTagName('ul')[0];
+    const liOne = document.getElementById("test");
+    console.log(liOne.length);
+    // console.log(container);
+
+    // let colorData = "yellow";
+    // container.addEventListener('click', function(event){
+    //   // console.log(event);
+    //   event.target.style.backgroundColor = colorData;
+    // });
+
+
+    function jongin(containerElement, operateColor, eventType){
+      if(typeof (containerElement) === "string"){
+        // if(typeof (containerElement) === "object")
+          // if(typeof (operateColor) === "string")
+            // if(typeof (eventType) === "string")
+        if(containerElement.length > 0);
+      };
+      
+      
+      let colorData = operateColor;
+      containerElement.addEventListener(eventType, function(event){
+        event.target.style.backgroundColor = colorData;
+      });
+      // return jongin(containerElement, operateColor, eventType);
+    }
+    
+    jongin(container, "yellow", "click");
+// containerElement 자식이 있는가? 확인, operateColor 컬러형태의 값이 들어있는가? eventType인가? 
+
+
+    // const root = document.getElementById('root');
+    // console.log(root);
+    // root.style.width = window.document.body.clientWidth / 2;
+    // root.style.height = window.document.body.clientHeight / arr.length;
+    // root.style.border = "1px solid red";
+
+    // root.addEventListener('mousemove', function(event){
+    //   console.log(event);
+    //   console.log("현재 마우스의 가로 위치는" + event.pageX + "px 입니다.");
+    //   console.log("현재 마우스의 세로 위치는" + event.pageY + "px 입니다.");
+    // });
+    
+    </script>
+</body>
+</html>
+
+<!-- for(let i = 0; i < liItems.length; i++){
+  liItems[i].addEventListener('click', function(){
+    alert(liItems[i].textContent);
+  }); -->
+  
+  
+  <!-- <script>
+    const liItems = document.querySelectorAll("#root > ul > li");
+    console.log(liItems);
+    const container = document.getElementsByTagName('ul')[0];
+    console.log(container);
+
+    container.addEventListener('click', function(doojin){
+      console.log(doojin);
+    });
+    </script> -->
+
+    <!-- <script>
+      const liItems = document.querySelectorAll("#root > ul > li");
+      console.log(liItems);
+      const container = document.getElementsByTagName('ul')[0];
+      console.log(container);
+  
+      container.addEventListener('click', function(event){
+        console.log(event);
+        event.target.style.backgroundColor = "yellow";
+      });
+      </script> -->
+  <!-- doojin 객체 > 콘솔에 event object > target(지정)  -->
+
+
+  <!-- const root = document.getElementById('root');
+    console.log(root);
+    root.style.width = "100vw";
+    root.style.height = "100vh";
+    root.style.boder = "1px solid red";
+
+    root.addEventListener('mousemove', function(event){
+      console.log(event);
+      console.log("현재 마우스의 가로 위치는" + event.pageX + "px 입니다.");
+      console.log("현재 마우스의 세로 위치는" + event.pageY + "px 입니다.");
+    }) -->
